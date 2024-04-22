@@ -39,15 +39,12 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: kirillborisov89/k8s-deployment-strategies
+        image: kirillborisov89/k8s-deployment-strategies:v2.0.0
         ports:
         - name: http
           containerPort: 8080
         - name: probe
           containerPort: 8086
-        env:
-        - name: VERSION
-          value: v2.0.0
         livenessProbe:
           httpGet:
             path: /live
