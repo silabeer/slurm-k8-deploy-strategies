@@ -1,0 +1,11 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: not-found-percentage
+spec:
+  metrics:
+  - name: not-found-percentage
+    provider:
+      prometheus:
+        address: http://prometheus-server.monitoring:80
+        query: sum(rate(http_requests_total{app="my-app"}[2m])) by (version) > 0
